@@ -25,17 +25,121 @@ body {
   font-family: "Open Sans", sans-serif;
 }
 
+h1 {
+  margin: 2rem;
+}
+
 p {
   font-size: 1.6rem;
   line-height: 1.5;
+  text-align: center;
 }
 
-img {
-  width: 100%;
+
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  background-color: var(--black);
+  color: var(--white);
+
 }
+
+
 
 .container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 0 20px;
+
+  background: url(../images/forest1.gif) center no-repeat;
+  position: relative;
+
+
+}
+
+.container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(136, 255, 0, 0.4);
+}
+
+.game {
+  width: 500px;
+  height: 200px;
+  border-bottom: 3px solid var(--black);
+  margin: auto;
+}
+
+.hero {
+  width: 20px;
+  height: 50px;
+  position: relative;
+  top: 150px;
+  left: 20px;
+  z-index: 1;
+}
+
+.hero-man {
+  width: 50px;
+  height: 50px;
+}
+
+.animate {
+  animation: jump 0.3s linear;
+}
+
+.villan {
+  width: 20px;
+  height: 50px;
+  position: relative;
+  top: 115px;
+  left: 450px;
+  z-index: 1;
+
+}
+
+
+.villan-wolf {
+  width: 50px;
+}
+
+@keyframes jump {
+  0% {
+    top: 150px;
+  }
+
+  30% {
+    top: 100px;
+    transform: rotate(45deg);
+  }
+
+  50% {
+    top: 60px;
+    transform: rotate(90deg);
+  }
+
+  75% {
+    top: 100px;
+    transform: rotate(180deg);
+  }
+
+  100% {
+    top: 150px;
+    transform: rotate(360deg);
+  }
+}
+
+
+@keyframes move {
+  0% {
+    left: 480px;
+  }
+
+  100% {
+    left: -20px;
+  }
 }
