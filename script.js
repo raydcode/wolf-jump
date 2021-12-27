@@ -1,6 +1,9 @@
 const man = document.querySelector('.hero');
 const boy = document.querySelector('.hero-man');
 const wolf = document.querySelector('.villan');
+let scoreResult = document.querySelector('.score');
+
+let score = 0;
 
 const jump = () => {
   if (man.classList != 'animate') {
@@ -15,8 +18,14 @@ const jump = () => {
 document.addEventListener('keydown', (e) => {
   if (e.code == 'Space') {
     jump();
+    scoreUp();
   }
 });
+
+const scoreUp = () => {
+  scoreResult.innerHTML = `Score:${score}`;
+  score++;
+};
 
 let isAlive = setInterval(() => {
   let manTop = parseInt(window.getComputedStyle(man).getPropertyValue('top'));
@@ -27,6 +36,8 @@ let isAlive = setInterval(() => {
 
   if (wolfLeft < 40 && wolfLeft > 20 && manTop >= 130) {
     wolf.style.animation = 'none';
-    alert('Game Over ');
+    alert('Game Over');
+    score = 0;
+    scoreResult.innerHTML = `Score:${score}`;
   }
 }, 10);
